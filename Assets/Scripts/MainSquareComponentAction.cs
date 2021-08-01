@@ -41,9 +41,9 @@ public class MainSquareComponentAction : MonoBehaviour
 
             if(Input.GetKey(KeyCode.LeftArrow))
                 transform.Translate(Vector3.left * (_squareComponent.moveSpeed * Time.deltaTime));
-        
-            if(Input.GetKey(KeyCode.RightArrow))
-                transform.Translate(Vector3.right * (_squareComponent.moveSpeed * Time.deltaTime));
+
+            if (Input.GetKey(KeyCode.RightArrow))
+                transform.position += new Vector3(_squareComponent.moveSpeed * Time.deltaTime, 0.0f, 0.0f);
         
             if(Input.GetKeyDown(KeyCode.UpArrow))
                 _rigidbody2D.AddForce(transform.up * 500f);
