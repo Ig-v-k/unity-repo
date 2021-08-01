@@ -1,13 +1,18 @@
+using System;
 using interfaces;
+using model;
 using UnityEngine;
 
-public class FlyingSquareComponentAction : MonoBehaviour
+public class MainSquareComponentAction : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 10f;
+    private Rigidbody2D _rigidbody2D;
+    private SquareComponent _squareComponent;
 
     private void Awake()
     {
         action(() => { DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Awake() --- : " + Time.deltaTime); });
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _squareComponent = GetComponent<SquareComponent>();
     }
 
     private void Start()
@@ -35,10 +40,13 @@ public class FlyingSquareComponentAction : MonoBehaviour
                 GetComponent<Renderer>().material.color = Color.blue;
 
             if(Input.GetKey(KeyCode.LeftArrow))
-                transform.Translate(Vector3.left * (_moveSpeed * Time.deltaTime));
+                transform.Translate(Vector3.left * (_squareComponent.moveSpeed * Time.deltaTime));
         
             if(Input.GetKey(KeyCode.RightArrow))
-                transform.Translate(Vector3.right * (_moveSpeed * Time.deltaTime));
+                transform.Translate(Vector3.right * (_squareComponent.moveSpeed * Time.deltaTime));
+        
+            if(Input.GetKeyDown(KeyCode.UpArrow))
+                _rigidbody2D.AddForce(transform.up * 500f);
 
             if (transform.position.y < -4f)
             {
