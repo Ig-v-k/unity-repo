@@ -5,18 +5,17 @@ public class VariablesAndFunctions : MonoBehaviour
 {
     private int _myInt = 5;
 
-    private void Start() {
-        action(() => {
-            DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Start() --- : " + Time.deltaTime);
-            _myInt *= 3;
-            DebugLogUtil.log(GetType(), "BLOCKER-LOG: int -> " + _myInt);
-            DebugLogUtil.log(GetType(), "BLOCKER-LOG: position.x -> " + transform.position.x);
-        });
-    }
-
     private void Awake() {
         action(() => {
             DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Awake() --- : " + Time.deltaTime);
+        });
+    }
+
+    private void Start() {
+        action(() => {
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Start() --- : " + Time.deltaTime);
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: int -> " + (_myInt *= 3));
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: position.x -> " + transform.position.x);
         });
     }
     
