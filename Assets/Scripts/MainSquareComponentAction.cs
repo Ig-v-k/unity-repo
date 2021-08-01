@@ -33,7 +33,7 @@ public class FlyingSquareComponentAction : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.B))
                 GetComponent<Renderer>().material.color = Color.blue;
-            
+
             if(Input.GetKey(KeyCode.LeftArrow))
                 transform.Translate(Vector3.left * (_moveSpeed * Time.deltaTime));
         
