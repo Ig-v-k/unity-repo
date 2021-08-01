@@ -39,10 +39,6 @@ public class VariablesAndFunctions : MonoBehaviour
             }
         });
     }
-    
-    private int MultiplyByTwo(int number) {
-        return number * 2;
-    }
 
     private void action(ActionInterface actionInterface) {
         actionInterface();
