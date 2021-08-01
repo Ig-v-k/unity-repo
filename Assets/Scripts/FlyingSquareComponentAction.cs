@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class FlyingSquareComponentAction : MonoBehaviour
 {
-    [SerializeField] private int _myInt = 5;
     [SerializeField] private Light _light;
-    [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float turnSpeed = 50f;
+    [SerializeField] private float _moveSpeed = 10f;
 
     private void Awake()
     {
@@ -19,7 +17,6 @@ public class FlyingSquareComponentAction : MonoBehaviour
         {
             DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Start() --- : " + Time.deltaTime);
             _light = GetComponent<Light>();
-            DebugLogUtil.log(GetType(), "BLOCKER-LOG: int -> " + (_myInt *= 3));
             DebugLogUtil.log(GetType(), "BLOCKER-LOG: position.x -> " + transform.position.x);
             DebugLogUtil.log(GetType(), "BLOCKER-LOG: activeSelf -> " + gameObject.activeSelf);
             DebugLogUtil.log(GetType(), "BLOCKER-LOG: activeInHierarchy -> " + gameObject.activeInHierarchy);
@@ -41,25 +38,15 @@ public class FlyingSquareComponentAction : MonoBehaviour
             
             if (Input.GetKeyUp(KeyCode.Space))
                 _light.enabled = !_light.enabled;
-        });
-        action(() =>
-        {
-            if (Input.GetKey(KeyCode.UpArrow))
-                transform.Translate(Vector3.forward * (moveSpeed * Time.deltaTime));
-
-            if (Input.GetKey(KeyCode.DownArrow))
-                transform.Translate(-Vector3.forward * (moveSpeed * Time.deltaTime));
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-                transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-
-            if (Input.GetKey(KeyCode.RightArrow))
-                transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-        });
+            
+            if(Input.GetKey(KeyCode.LeftArrow))
+                transform.Translate(Vector3.left * (_moveSpeed * Time.deltaTime));
+        
+            if(Input.GetKey(KeyCode.RightArrow))
+                transform.Translate(Vector3.right * (_moveSpeed * Time.deltaTime));        });
     }
 
-    private void action(ActionInterface actionInterface)
-    {
+    private void action(ActionInterface actionInterface) {
         actionInterface();
     }
 }
