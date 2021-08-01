@@ -1,22 +1,51 @@
-using System.Collections.Generic;
+using interfaces;
 using UnityEngine;
 
-public class VariablesAndFunctions : MonoBehaviour {
+public class VariablesAndFunctions : MonoBehaviour
+{
     private int _myInt = 5;
 
-    private void Start () {
-        Action(() => {
+    private void Start() {
+        action(() => {
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Start() --- : " + Time.deltaTime);
             _myInt *= 3;
-            Debug.Log("BLOCKER-LOG: int -> " + _myInt);
-            Debug.Log("BLOCKER-LOG: position.x -> " + transform.position.x);
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: int -> " + _myInt);
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: position.x -> " + transform.position.x);
         });
     }
 
+    private void Awake() {
+        action(() => {
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Awake() --- : " + Time.deltaTime);
+        });
+    }
+    
+    private void FixedUpdate() {
+        action(() => {
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- FixedUpdate() --- : " + Time.deltaTime);            
+        });
+    }
+
+    private void Update() {
+        action(() => {
+            DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Update() --- : " + Time.deltaTime);
+            if (Input.GetKeyDown(KeyCode.R)) {
+                GetComponent<Renderer>().material.color = Color.red;
+            }
+            if (Input.GetKeyDown(KeyCode.G)) {
+                GetComponent<Renderer>().material.color = Color.green;
+            }
+            if (Input.GetKeyDown(KeyCode.B)) {
+                GetComponent<Renderer>().material.color = Color.blue;
+            }
+        });
+    }
+    
     private int MultiplyByTwo(int number) {
         return number * 2;
     }
 
-    private void Action(ActionInterface actionInterface) {
+    private void action(ActionInterface actionInterface) {
         actionInterface();
     }
 }
