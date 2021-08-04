@@ -9,7 +9,7 @@ public class MainSquareComponentAction : MonoBehaviour
     
     private BulletComponent _bulletComponent;
     private SquareComponent _squareComponent;
-    
+
     private int _bullets = 10;
 
     private void Awake()
