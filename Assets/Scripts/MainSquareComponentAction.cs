@@ -61,10 +61,11 @@ public class MainSquareComponentAction : MonoBehaviour
                 _bullets--;
             }
 
-            if (transform.position.y < -4f) {
+            if (transform.position.y < -5f) {
                 Destroy(gameObject);
             } 
-            if (_rigidbody2DBullet != null && _rigidbody2DBullet.transform.position.y < -4f) {
+            if (_rigidbody2DBullet != null && (_rigidbody2DBullet.transform.position.y < -5f ||
+                                               _rigidbody2DBullet.transform.position.y > 5f)) {
                 Destroy(_rigidbody2DBullet.gameObject);
             }
 
