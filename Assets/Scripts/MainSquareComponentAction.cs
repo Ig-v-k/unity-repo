@@ -5,9 +5,9 @@ using UnityEngine;
 public class MainSquareComponentAction : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
-    private Rigidbody2D _rigidbody2DBullet;
-    
-    private BulletComponent _bulletComponent;
+
+    public Transform _barrel;
+    public Rigidbody2D _bulletComponent;
     private SquareComponent _squareComponent;
 
     private int _bullets = 10;
@@ -16,7 +16,6 @@ public class MainSquareComponentAction : MonoBehaviour
     {
         action(() => { DebugLogUtil.log(GetType(), "BLOCKER-LOG: --- Awake() --- : " + Time.deltaTime); });
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _bulletComponent = FindObjectOfType<BulletComponent>();
         _squareComponent = GetComponent<SquareComponent>();
     }
 
@@ -53,22 +52,15 @@ public class MainSquareComponentAction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow))
                 _rigidbody2D.AddForce(transform.up * 500f);
 
-            if (Input.GetKeyDown(KeyCode.Space) && _bullets > 0)
-            {
-                Rigidbody2D rigidbody2DBulletPrefab = _bulletComponent.GetComponent<Rigidbody2D>();
-                _rigidbody2DBullet = Instantiate(rigidbody2DBulletPrefab, transform.position, transform.rotation);
-                _rigidbody2DBullet.AddForce(transform.up * 700);
+            if (Input.GetKeyDown(KeyCode.Space) && _bullets > 0) {
+                Rigidbody2D _rigidbody2DBullet = Instantiate(_bulletComponent, _barrel.position, _barrel.rotation);
+                _rigidbody2DBullet.AddForce(_barrel.up * 400);
                 _bullets--;
             }
 
             if (transform.position.y < -5f) {
                 Destroy(gameObject);
-            } 
-            if (_rigidbody2DBullet != null && (_rigidbody2DBullet.transform.position.y < -5f ||
-                                               _rigidbody2DBullet.transform.position.y > 5f)) {
-                Destroy(_rigidbody2DBullet.gameObject);
             }
-
         });
     }
 
