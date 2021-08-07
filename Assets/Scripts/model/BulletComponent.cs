@@ -1,17 +1,29 @@
+using System;
+using interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace model
 {
     public class BulletComponent : MonoBehaviour
     {
-        [SerializeField] private float _moveSpeed = 700;
 
-        public float moveSpeed => _moveSpeed;
-        
-        public void OnTriggerEnter2D(Collider2D other) {
-            if (other.gameObject == GameObject.Find("TriggerComponentCircle")) {
+        private GameObject _displayCounterTextGO;
+        private GameObject _triggerComponentCircle;
+
+        private void Awake()
+        {
+            _triggerComponentCircle = GameObject.Find("TriggerComponentCircle");
+            _displayCounterTextGO = GameObject.Find("TriggerText");
+        }
+
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject == _triggerComponentCircle)
+            {
                 GetComponent<Renderer>().material.color = Color.red;
                 gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                _displayCounterTextGO.GetComponent<DisplayCounterText>().increment();
             }
         }
     }

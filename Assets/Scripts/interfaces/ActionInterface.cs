@@ -1,4 +1,4 @@
 namespace interfaces
 {
-    internal delegate void ActionInterface();
+    public delegate void ActionInterface();
 }
