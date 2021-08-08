@@ -32,11 +32,11 @@ public class MainSquareComponentAction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
                 GetComponent<Renderer>().material.color = Color.blue;
 
-            if (Input.GetKeyDown(KeyCode.Space) && _bullets > 0) {
+            /*if (Input.GetKeyDown(KeyCode.Space) && _bullets > 0) {
                 Rigidbody2D _rigidbody2DBullet = Instantiate(_bulletComponent.GetComponent<Rigidbody2D>(), _barrel.position, _barrel.rotation);
                 _rigidbody2DBullet.AddForce(_barrel.up * 400);
                 _bullets--;
-            }
+            }*/
         });
     }
 

@@ -12,6 +12,6 @@ public class RotateComponent : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        transform.Rotate(0, 0, _triggerPointModel.SpeedRotate);
+        transform.Rotate(0, 0, -_triggerPointModel.SpeedRotate);
     }
 }
