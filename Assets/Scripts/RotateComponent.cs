@@ -1,17 +1,11 @@
-using System;
 using UnityEngine;
 
 public class RotateComponent : MonoBehaviour
 {
-    public GameObject _targetGO;
-    private TriggerPointModel _triggerPointModel;
+    [SerializeField] public int _speedRotateElements = 3;
 
-    private void Awake()
+    private void FixedUpdate()
     {
-        _triggerPointModel = new TriggerPointModel();
-    }
-
-    private void FixedUpdate() {
-        transform.Rotate(0, 0, -_triggerPointModel.SpeedRotate);
+        transform.Rotate(0, 0, -_speedRotateElements);
     }
 }
