@@ -558,8 +558,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211801475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08, y: -1.86, z: 0}
-  m_LocalScale: {x: 6.909048, y: 0.1375214, z: 1}
+  m_LocalPosition: {x: 0.1249, y: -1.86, z: 0}
+  m_LocalScale: {x: 4.567915, y: 0.1375214, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -711,7 +711,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barrel: {fileID: 1200641425}
-  _bulletComponent: {fileID: 6381953605429694540, guid: 3b85f172cd10e9cc09642a08668fd645, type: 3}
+  _bulletComponent: {fileID: 6381953605429694514, guid: 3b85f172cd10e9cc09642a08668fd645, type: 3}
+  _bullets: 5
 --- !u!114 &353505171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,8 +1087,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461997465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.45, y: 0.05, z: 0}
-  m_LocalScale: {x: 1.7212526, y: 0.1375214, z: 1}
+  m_LocalPosition: {x: 1.0742, y: 0.05, z: 0}
+  m_LocalScale: {x: 1.4780437, y: 0.1375214, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1178,6 +1179,7 @@ GameObject:
   - component: {fileID: 1887772236}
   - component: {fileID: 1887772238}
   - component: {fileID: 1887772237}
+  - component: {fileID: 1887772239}
   m_Layer: 5
   m_Name: TriggerText
   m_TagString: Untagged
@@ -1246,6 +1248,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887772235}
   m_CullTransparentMesh: 1
+--- !u!114 &1887772239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887772235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4690937f6449d6ae595ce4588ff23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1896609722
 GameObject:
   m_ObjectHideFlags: 0
