@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Voyager : MonoBehaviour
 {
+    public CompareType _compareType;
+    
     private void Update()
     {
         if (Input.touchCount > 0)
@@ -23,6 +25,6 @@ public class Voyager : MonoBehaviour
 
     private void push()
     {
-        GetComponent<Rigidbody2D>().AddForce(transform.up * 400);
+        GetComponent<Rigidbody2D>().AddForce(transform.up * 200);
     }
 }

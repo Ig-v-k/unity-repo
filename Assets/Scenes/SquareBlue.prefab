@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 4798804356272677142}
   - component: {fileID: 8360187018355052897}
   - component: {fileID: 596724757335411790}
+  - component: {fileID: 3903623680171124894}
   - component: {fileID: 2755190648202504950}
+  - component: {fileID: -4357784733268841014}
   m_Layer: 0
   m_Name: SquareBlue
   m_TagString: Untagged
@@ -105,6 +107,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &3903623680171124894
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5496169343418132836}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &2755190648202504950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,5 +143,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d904e92def9741dcaefa910b742e4848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _compareType: 3
+--- !u!114 &-4357784733268841014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5496169343418132836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd949838c844ebc816954d1ffbe0df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
